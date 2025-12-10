@@ -1,0 +1,23 @@
+.genre-badge {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: transparent;
+    color: #f9fafb;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap;
+}
+
+.genre-badge:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
+}
+
+.genre-badge--active {
+    background: linear-gradient(135deg, #f97316, #fb7185);
+    border-color: transparent;
+    color: #0b1120;
+}

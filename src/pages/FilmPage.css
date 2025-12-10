@@ -1,0 +1,251 @@
+/* кореневий контейнер */
+
+.film-page {
+    width: 100%;
+    height: 100%;
+}
+
+/* loader */
+
+.film-page--loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.film-page-loader {
+    padding: 40px 0;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* hero-блок */
+
+.film-hero {
+    position: relative;
+    border-radius: 28px;
+    padding: 24px 28px;
+    background: radial-gradient(circle at top, #252f3a, #05090c 70%);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.film-hero-content {
+    position: relative;
+    display: flex;
+    gap: 28px;
+}
+
+/* постер */
+
+.film-poster-wrapper {
+    flex: 0 0 230px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.75);
+    background: #11161b;
+}
+
+.film-poster-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.film-poster-placeholder {
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* права колонка з інформацією */
+
+.film-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.film-info-top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.film-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.film-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: rgba(10, 16, 22, 0.9);
+    color: var(--text-muted);
+    border: 1px solid rgba(149, 156, 163, 0.35);
+}
+
+.film-title {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.film-tagline {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* рейтинг + жанри */
+
+.film-rating-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.film-rating-main {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(12, 18, 24, 0.9);
+    box-shadow: 0 0 0 1px rgba(255, 215, 106, 0.35);
+}
+
+.film-rating-star {
+    color: #ffd76a;
+    font-size: 16px;
+}
+
+.film-rating-score {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.film-rating-votes {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.film-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.film-genre-chip {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    background: rgba(9, 14, 19, 0.9);
+    color: var(--text-primary);
+    border: 1px solid rgba(149, 156, 163, 0.4);
+}
+
+/* опис */
+
+.film-overview {
+    margin: 4px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    max-width: 760px;
+}
+
+/* додаткова інформація */
+
+.film-extra-grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px 18px;
+}
+
+.film-extra-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.film-extra-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+
+.film-extra-value {
+    font-size: 13px;
+}
+
+/* кнопки */
+
+.film-actions {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: center;
+}
+
+.film-btn {
+    border-radius: 999px;
+    border: none;
+    padding: 8px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease, color 0.15s ease;
+}
+
+.film-btn--primary {
+    background: #f9f8ff;
+    color: #0e1518;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+.film-btn--primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 22px 56px rgba(0, 0, 0, 0.9);
+}
+
+.film-btn--secondary {
+    background: rgba(9, 14, 19, 0.95);
+    color: var(--text-primary);
+    border: 1px solid rgba(149, 156, 163, 0.5);
+}
+
+.film-btn--secondary:hover {
+    background: rgba(18, 25, 32, 0.98);
+}
+
+.film-back-link {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.film-back-link:hover {
+    text-decoration: underline;
+}

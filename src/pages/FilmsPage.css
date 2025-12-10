@@ -1,0 +1,152 @@
+.films-page {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 100%;
+}
+
+/* верхні таби */
+
+.films-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.films-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.films-tab {
+    border: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.films-tab:hover {
+    background: rgba(20, 27, 32, 0.9);
+    color: var(--text-primary);
+}
+
+.films-tab--active {
+    background: #f9f8ff;
+    color: #0e1518;
+}
+
+/* рядок карток */
+
+.films-row {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;        /* ✅ переносимо на новий рядок */
+    gap: 20px 18px;         /* вертикальний / горизонтальний відступ */
+    padding-bottom: 12px;
+    overflow-x: hidden;
+}
+
+
+/* card */
+
+.film-card {
+    flex: 0 1 200px;        /* ✅ ширина ~200px, далі заповнює ряд */
+    max-width: 220px;
+    text-decoration: none;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border-radius: 26px;
+    padding: 10px 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.film-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+    background: #141f27;
+}
+
+.film-card-poster img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+}
+
+.film-card-poster--placeholder {
+    width: 100%;
+    height: 230px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #151f26, #0e1518);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    font-size: 13px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.film-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.film-card-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.film-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.film-card-meta span:last-child {
+    color: #ffd76a;
+}
+.films-pagination {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.films-pagination button {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.films-pagination button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.films-pagination-info {
+    font-size: 14px;
+    opacity: 0.8;
+}
+.films-genres {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
