@@ -7,7 +7,7 @@ import {createBrowserRouter, type RouteObject} from "react-router-dom";
 const routes: RouteObject[] =[
     {
         path: '', element: <MainLayout/>, children: [
-            {path:'films', element:<FilmsPage/>},
+            {path:'home', element:<FilmsPage/>},
             {path:'film/:id', element:<FilmPage/>},
             {path:'films', element:<FavoritesPage/>},
         ]
