@@ -5,7 +5,7 @@ import { useAppSelector } from "../redux/hooks/useAppSelector";
 import { filmSliceActions } from "../redux/slices/filmSlice/filmSlice";
 
 import "./MoviePage.css";
-import {favoritesActions} from "../redux/slices/favoriteSlice/FavoriteSlice.tsx";
+import {favoritesActions} from "../redux/slices/favoriteSlice/FavoriteSlice.ts";
 
 export const MoviePage = () => {
     const { id } = useParams();
