@@ -9,6 +9,13 @@ Currently, two official plugins are available:
 
 ## React Compiler
 
+
+//Token is HERE
+
+const token = import.meta.env.VITE_TMDB_READ_TOKEN;
+VITE_TMDB_READ_TOKEN=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMzEzMjJkMWQ1MjIyMDQ2YjE3M2ZiYTY2ZWM2MjExYSIsIm5iZiI6MTc2NDU4OTgwNi45NjEsInN1YiI6IjY5MmQ4MGVlZDY0YzBkMzEwNjM5OGMxMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3pOzvrT8yKlE7hpoMyiAW_RgEKUFFj-21N1bSC3RPqE
+
+
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
 ## Expanding the ESLint configuration

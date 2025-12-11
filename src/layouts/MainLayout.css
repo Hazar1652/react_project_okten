@@ -8,7 +8,6 @@
     --radius-md: 16px;
 }
 
-/* базово */
 
 *,
 *::before,
@@ -31,7 +30,7 @@ body {
     color: var(--text-primary);
 }
 
-/* sidebar */
+
 
 .sidebar {
     width: 220px;
@@ -110,7 +109,6 @@ body {
     border-color: #0e1518;
 }
 
-/* main */
 
 .main {
     flex: 1;
@@ -120,7 +118,6 @@ body {
     gap: 24px;
 }
 
-/* topbar */
 
 .topbar {
     display: flex;
@@ -155,7 +152,7 @@ body {
     color: var(--text-muted);
 }
 
-/* контент сторінок */
+
 
 .main-content {
     flex: 1;

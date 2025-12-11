@@ -1,16 +1,35 @@
-// src/pages/FilmPage.tsx
 import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useAppDispatch } from "../redux/hooks/useAppDispatch";
 import { useAppSelector } from "../redux/hooks/useAppSelector";
 import { filmSliceActions } from "../redux/slices/filmSlice/filmSlice";
-import "./FilmPage.css";
 
-export const FilmPage = () => {
+import "./MoviePage.css";
+import {favoritesActions} from "../redux/slices/favoriteSlice/FavoriteSlice.tsx";
+
+export const MoviePage = () => {
     const { id } = useParams();
     const numericId = Number(id);
+
     const dispatch = useAppDispatch();
+
     const { film, loadState } = useAppSelector((state) => state.filmSlice);
+    const favorites = useAppSelector((state) => state.favoritesSlice.items);
+
+    const isFavorite = favorites.some((f) => f.id === film?.id);
+
+    const toggleFavorite = () => {
+        if (!film) return;
+
+        dispatch(
+            favoritesActions.toggleFavorite({
+                id: film.id,
+                title: film.title,
+                poster_path: film.poster_path ?? undefined,
+                vote_average: film.vote_average,
+            })
+        );
+    };
 
     useEffect(() => {
         if (!id) return;
@@ -49,11 +68,9 @@ export const FilmPage = () => {
         ? film.original_language.toUpperCase()
         : "—";
 
-    // genres і runtime приходять з /movie/:id
-    // якщо TS свариться — додай їх як optional у IFilm
-    const genres = (film as any).genres as { id: number; name: string }[] | undefined;
-    const runtime = (film as any).runtime as number | undefined;
-    const tagline = (film as any).tagline as string | undefined;
+    const genres = film.genres;
+    const runtime = film.runtime;
+    const tagline = film.tagline;
 
     const runtimeLabel =
         runtime && runtime > 0
@@ -95,9 +112,7 @@ export const FilmPage = () => {
                                         {runtimeLabel}
                                     </span>
                                 )}
-                                <span className="film-badge">
-                                    Lang: {lang}
-                                </span>
+                                <span className="film-badge">Lang: {lang}</span>
                             </div>
 
                             <h1 className="film-title">{film.title}</h1>
@@ -151,9 +166,7 @@ export const FilmPage = () => {
                                 </span>
                             </div>
                             <div className="film-extra-item">
-                                <span className="film-extra-label">
-                                    Adult
-                                </span>
+                                <span className="film-extra-label">Adult</span>
                                 <span className="film-extra-value">
                                     {film.adult ? "18+" : "Family / 16+"}
                                 </span>
@@ -164,9 +177,21 @@ export const FilmPage = () => {
                             <button className="film-btn film-btn--primary">
                                 ▶ Watch trailer
                             </button>
-                            <button className="film-btn film-btn--secondary">
-                                + Add to favorites
+
+                            <button
+                                onClick={toggleFavorite}
+                                className={
+                                    "film-btn " +
+                                    (isFavorite
+                                        ? "film-btn--active"
+                                        : "film-btn--secondary")
+                                }
+                            >
+                                {isFavorite
+                                    ? "✓ Added to favorites"
+                                    : "+ Add to favorites"}
                             </button>
+
                             <Link to="/" className="film-back-link">
                                 ← Back to home
                             </Link>

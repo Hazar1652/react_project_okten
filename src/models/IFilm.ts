@@ -1,16 +1,23 @@
-export interface IFilm {
-    adult: boolean;
-    backdrop_path: string | null;
-    genre_ids: number[];
+
+export interface IGenre {
     id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string | null;
-    release_date: string;
+    name: string;
+}
+
+export interface IFilm {
+    id: number;
     title: string;
-    video: boolean;
+    overview: string;
+    poster_path: string | null;
+    backdrop_path?: string | null;
     vote_average: number;
     vote_count: number;
+    release_date?: string;
+    original_title?: string;
+    popularity?: number;
+    adult?: boolean;
+    original_language?: string;
+    genres?: IGenre[];
+    runtime?: number;
+    tagline?: string;
 }

@@ -5,7 +5,7 @@
     height: 100%;
 }
 
-/* верхні таби */
+
 
 .films-header {
     display: flex;
@@ -40,22 +40,21 @@
     color: #0e1518;
 }
 
-/* рядок карток */
 
 .films-row {
     margin-top: 12px;
     display: flex;
-    flex-wrap: wrap;        /* ✅ переносимо на новий рядок */
-    gap: 20px 18px;         /* вертикальний / горизонтальний відступ */
+    flex-wrap: wrap;
+    gap: 20px 18px;
     padding-bottom: 12px;
     overflow-x: hidden;
 }
 
 
-/* card */
+
 
 .film-card {
-    flex: 0 1 200px;        /* ✅ ширина ~200px, далі заповнює ряд */
+    flex: 0 1 200px;
     max-width: 220px;
     text-decoration: none;
     color: var(--text-primary);

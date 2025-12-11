@@ -1,0 +1,22 @@
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-info-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #f97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.user-info-name {
+    font-size: 14px;
+    opacity: 0.9;
+}

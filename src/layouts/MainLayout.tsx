@@ -1,6 +1,5 @@
-// MainLayout.tsx
-import { NavLink, Outlet } from "react-router-dom";
-import { Header } from "../components/Header";
+import {NavLink, Outlet} from "react-router-dom";
+import {Header} from "../components/Header";
 import "./MainLayout.css";
 
 export const MainLayout = () => {
@@ -16,22 +15,35 @@ export const MainLayout = () => {
                     <NavLink
                         to="/"
                         end
-                        className={({ isActive }) =>
+                        className={({isActive}) =>
                             "sidebar-link" + (isActive ? " sidebar-link--active" : "")
                         }
                     >
-                        <span className="sidebar-link-dot" />
+                        <span className="sidebar-link-dot"/>
                         <span>Home</span>
+
+
                     </NavLink>
+                    <NavLink
+                        to="favorites"
+                        end
+                        className={({isActive}) =>
+                            "sidebar-link" + (isActive ? " sidebar-link--active" : "")
+                        }
+                    >
+                        <span className="sidebar-link-dot"/>
+                        <span>Favorites ⭐</span>
+                    </NavLink>
+
                 </nav>
             </aside>
 
             <main className="main">
 
-                <Header />
+                <Header/>
 
                 <section className="main-content">
-                    <Outlet />
+                    <Outlet/>
                 </section>
             </main>
         </div>

@@ -1,21 +1,28 @@
 // src/router/router.tsx
-import {createBrowserRouter, type RouteObject} from "react-router-dom";
-import {MainLayout} from "../layouts/MainLayout";
-import {FilmsPage} from "../pages/FilmsPage";
-import {FilmPage} from "../pages/FilmPage";
+import { createBrowserRouter } from "react-router-dom";
+import { MainLayout } from "../layouts/MainLayout";
 
+import { MoviePage } from "../pages/MoviePage.tsx";
+import {MoviesPage} from "../pages/MoviesPage.tsx";
+import {FavoritesPage} from "../pages/FavoritePage.tsx";
 
-const routes: RouteObject[] = [
+export const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
         children: [
-            { index: true, element: <FilmsPage /> },
-            { path: "films", element: <FilmsPage /> },
-            { path: "film/:id", element: <FilmPage /> },
-
+            {
+                index: true,
+                element: <MoviesPage />,
+            },
+            {
+                path: "movie/:id",
+                element: <MoviePage />,
+            },
+            {
+                path:"favorites",
+                element: <FavoritesPage/>
+            }
         ],
     },
-];
-
-export const router = createBrowserRouter(routes);
+]);
