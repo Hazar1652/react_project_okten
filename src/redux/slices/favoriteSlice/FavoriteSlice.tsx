@@ -1,14 +1,10 @@
 import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
+import type {IFavoriteFilm} from "../../../models/IFavoriteFilm.ts";
 
-interface FavoriteFilm {
-    id: number;
-    title: string;
-    poster_path?: string;
-    vote_average?: number;
-}
+
 
 interface FavoritesState {
-    items: FavoriteFilm[];
+    items: IFavoriteFilm[];
 }
 
 const initialState: FavoritesState = {
@@ -19,7 +15,7 @@ export const favoritesSlice = createSlice({
     name: "favorites",
     initialState,
     reducers: {
-        toggleFavorite(state, action: PayloadAction<FavoriteFilm>) {
+        toggleFavorite(state, action: PayloadAction<IFavoriteFilm>) {
             const exists = state.items.find(f => f.id === action.payload.id);
 
             if (exists) {

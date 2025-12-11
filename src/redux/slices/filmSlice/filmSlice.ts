@@ -1,5 +1,6 @@
-// src/redux/slices/filmSlice/filmSlice.ts
 import type { IFilm } from "../../../models/IFilm";
+
+import type { IApiResponse } from "../../../models/IApiResponse";
 import {
     createAsyncThunk,
     createSlice,
@@ -11,12 +12,7 @@ export interface Genre {
     name: string;
 }
 
-interface LoadFilmsResponse {
-    results: IFilm[];
-    page: number;
-    total_pages: number;
-    total_results: number;
-}
+type LoadFilmsResponse = IApiResponse<IFilm>;
 
 interface LoadFilmsArgs {
     page?: number;
