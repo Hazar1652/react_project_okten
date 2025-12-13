@@ -3,11 +3,12 @@ import { useAppDispatch } from "../redux/hooks/useAppDispatch";
 import { useAppSelector } from "../redux/hooks/useAppSelector";
 import { filmSliceActions } from "../redux/slices/filmSlice/filmSlice";
 import { MoviesList } from "../components/MoviesList";
-import { GenreBadge } from "../components/GenreBadge";
+import { GenresFilter } from "../components/GenresFilter";
 import "./MoviesPage.css";
 
 export const MoviesPage = () => {
     const dispatch = useAppDispatch();
+
 
     const {
         films,
@@ -36,56 +37,15 @@ export const MoviesPage = () => {
     }, [dispatch, page, search, selectedGenreId]);
 
     const handlePrevPage = () => {
-        if (page > 1) {
-            dispatch(filmSliceActions.setPage(page - 1));
-        }
+        if (page > 1) dispatch(filmSliceActions.setPage(page - 1));
     };
 
     const handleNextPage = () => {
-        if (page < totalPages) {
-            dispatch(filmSliceActions.setPage(page + 1));
-        }
-    };
-
-    const handleGenreClick = (id: number | null) => {
-        dispatch(filmSliceActions.setSelectedGenreId(id));
-        dispatch(filmSliceActions.setPage(1));
+        if (page < totalPages) dispatch(filmSliceActions.setPage(page + 1));
     };
 
     if (loadState && !films.length) {
         return <div className="movies-loader">Loading...</div>;
-    }
-
-    if (!loadState && !films.length) {
-        return (
-            <div className="films-page">
-                <h2 className="movies-title">Trending movies</h2>
-
-                {genres.length > 0 && (
-                    <div className="films-genres">
-                        <GenreBadge
-                            label="All genres"
-                            active={selectedGenreId === null}
-                            onClick={() => handleGenreClick(null)}
-                        />
-                        {genres.map((g) => (
-                            <GenreBadge
-                                key={g.id}
-                                label={g.name}
-                                active={selectedGenreId === g.id}
-                                onClick={() => handleGenreClick(g.id)}
-                            />
-                        ))}
-                    </div>
-                )}
-
-                <div className="movies-empty">
-                    {search.trim()
-                        ? `Нічого не знайдено за запитом “${search.trim()}”`
-                        : "Поки що немає фільмів 🥲"}
-                </div>
-            </div>
-        );
     }
 
     const title =
@@ -97,35 +57,25 @@ export const MoviesPage = () => {
 
     return (
         <div className="films-page">
-            <h2 className="movies-title">{title}</h2>
+            <div className="films-header">
+                <h2 className="movies-title">{title}</h2>
+                <GenresFilter />
+            </div>
 
-            {genres.length > 0 && (
-                <div className="films-genres">
-                    <GenreBadge
-                        label="All genres"
-                        active={selectedGenreId === null}
-                        onClick={() => handleGenreClick(null)}
-                    />
-                    {genres.map((g) => (
-                        <GenreBadge
-                            key={g.id}
-                            label={g.name}
-                            active={selectedGenreId === g.id}
-                            onClick={() => handleGenreClick(g.id)}
-                        />
-                    ))}
+            {/* CONTENT */}
+            {!films.length && !loadState ? (
+                <div className="movies-empty">
+                    {search.trim()
+                        ? `Нічого не знайдено за запитом “${search.trim()}”`
+                        : "Поки що немає фільмів 🥲"}
                 </div>
+            ) : (
+                <MoviesList movies={films} />
             )}
-
-            <MoviesList movies={films} />
 
             {totalPages > 1 && (
                 <div className="films-pagination">
-                    <button
-                        type="button"
-                        onClick={handlePrevPage}
-                        disabled={page === 1}
-                    >
+                    <button onClick={handlePrevPage} disabled={page === 1}>
                         ← Prev
                     </button>
 
@@ -133,11 +83,7 @@ export const MoviesPage = () => {
                         Page {page} of {totalPages}
                     </span>
 
-                    <button
-                        type="button"
-                        onClick={handleNextPage}
-                        disabled={page === totalPages}
-                    >
+                    <button onClick={handleNextPage} disabled={page === totalPages}>
                         Next →
                     </button>
                 </div>
